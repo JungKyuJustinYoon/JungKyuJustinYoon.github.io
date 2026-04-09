@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justin Yoon | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body { background-color: #050505; color: white; font-family: sans-serif; }
+        .hero-gradient { background: radial-gradient(circle at center, #111 0%, #050505 100%); }
+    </style>
+</head>
+<body>
+    <nav class="p-8 flex justify-between items-center tracking-widest uppercase text-[10px]">
+        <div>Justin Yoon</div>
+        <div class="space-x-8">
+            <a href="#projects" class="hover:text-blue-500 transition">Projects</a>
+            <a href="#about" class="hover:text-blue-500 transition">About</a>
+        </div>
+    </nav>
+
+    <section class="h-[80vh] flex flex-col items-center justify-center text-center hero-gradient">
+        <h1 class="text-6xl font-bold tracking-tighter mb-4" data-aos="fade-up">ENGINEERED PRECISION.</h1>
+        <p class="text-zinc-500 tracking-[0.4em] text-sm uppercase" data-aos="fade-up" data-aos-delay="200">Biomedical Engineering | UBC</p>
+    </section>
+
+    <section id="projects" class="p-20 grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div class="border border-zinc-800 p-10 rounded-lg" data-aos="fade-right">
+            <h2 class="text-xl font-bold mb-4">Structural Analysis</h2>
+            <p class="text-zinc-400">Calculations for stainless steel frame tension and failure points.</p>
+        </div>
+        <div class="border border-zinc-800 p-10 rounded-lg" data-aos="fade-left">
+            <h2 class="text-xl font-bold mb-4">Bioinformatics</h2>
+            <p class="text-zinc-400">Gene analysis and DNA sequence identification projects.</p>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
+</body>
+</html>

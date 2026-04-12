@@ -1,1 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Title | Justin Yoon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body { background-color: #050505; color: white; font-family: sans-serif; }
+        .hero-gradient { background: linear-gradient(to bottom, #111 0%, #050505 100%); }
+    </style>
+</head>
+<body>
 
+    <nav class="fixed w-full z-50 p-8 flex justify-between items-center tracking-widest uppercase text-[10px] bg-[#050505]/90 backdrop-blur-md border-b border-zinc-900/50">
+        <a href="index.html" class="hover:text-blue-500 transition font-bold">← Back to Portfolio</a>
+        <div class="space-x-8">
+            <a href="index.html#projects" class="hover:text-blue-500 transition">All Projects</a>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-20 px-10 max-w-4xl mx-auto">
+        <header class="mb-20" data-aos="fade-up">
+            <h1 class="text-5xl font-bold tracking-tighter mb-4">Structural Steel Analysis</h1>
+            <p class="text-blue-500 tracking-[0.3em] text-xs uppercase">Mechanical Design & Testing</p>
+        </header>
+
+        <div class="mb-16 overflow-hidden rounded-sm border border-zinc-900" data-aos="zoom-in">
+            <img src="images/project1-hero.jpg" alt="Project Detail" class="w-full grayscale hover:grayscale-0 transition duration-700">
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="md:col-span-2 space-y-8 text-zinc-300 leading-relaxed" data-aos="fade-right">
+                <h2 class="text-white text-xl font-bold">Overview</h2>
+                <p>Describe the problem you were solving here. Focus on the engineering challenges, such as material constraints or load requirements.</p>
+                
+                <h2 class="text-white text-xl font-bold">Key Deliverables</h2>
+                <ul class="list-disc list-inside space-y-2 text-zinc-400">
+                    <li>3D CAD Modeling (SolidWorks)</li>
+                    <li>FEA Analysis of failure points</li>
+                    <li>Technical documentation for manufacturing</li>
+                </ul>
+            </div>
+
+            <div class="space-y-8" data-aos="fade-left">
+                <div>
+                    <h3 class="text-zinc-600 uppercase text-[9px] tracking-widest mb-2">Role</h3>
+                    <p class="text-sm">Lead Structural Analyst</p>
+                </div>
+                <div>
+                    <h3 class="text-zinc-600 uppercase text-[9px] tracking-widest mb-2">Tools</h3>
+                    <p class="text-sm">SolidWorks, MATLAB, ANSYS</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-20 text-center border-t border-zinc-900">
+        <p class="text-[10px] text-zinc-600 tracking-[0.5em] uppercase">© 2026 Justin Yoon</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 1000 });</script>
+</body>
+</html>

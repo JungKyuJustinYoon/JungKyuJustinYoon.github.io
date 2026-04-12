@@ -7,36 +7,209 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
+        html { scroll-behavior: smooth; }
         body { background-color: #050505; color: white; font-family: sans-serif; }
         .hero-gradient { background: radial-gradient(circle at center, #111 0%, #050505 100%); }
+        
+        /* Project Card Hover Effects */
+        .project-card img { transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+        .project-card:hover img { transform: scale(1.1); }
+        .project-overlay { 
+            background: rgba(0, 0, 0, 0.85); 
+            opacity: 0; 
+            transition: all 0.4s ease;
+            backdrop-blur: 4px;
+        }
+        .project-card:hover .project-overlay { opacity: 1; }
+
+        /* Resume PDF Hover Logic */
+        .resume-container { 
+            position: relative; 
+            width: 100%; 
+            max-width: 900px; 
+            height: 800px; 
+            margin: 0 auto; 
+            overflow: hidden; 
+            border-radius: 4px; 
+            border: 1px solid #1a1a1a; 
+        }
+        .resume-iframe { width: 100%; height: 100%; border: none; transition: filter 0.3s ease; }
+        .resume-download-overlay { 
+            position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; 
+            background: rgba(0, 0, 0, 0.5); opacity: 0; transition: opacity 0.3s ease; pointer-events: none;
+        }
+        .resume-container:hover .resume-iframe { filter: blur(10px); }
+        .resume-container:hover .resume-download-overlay { opacity: 1; pointer-events: auto; }
+
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }
     </style>
 </head>
 <body>
-    <nav class="p-8 flex justify-between items-center tracking-widest uppercase text-[10px]">
-        <div>Justin Yoon</div>
+
+    <nav class="fixed w-full z-50 p-8 flex justify-end items-center tracking-widest uppercase text-[10px] bg-[#050505]/90 backdrop-blur-md border-b border-zinc-900/50">
         <div class="space-x-8">
-            <a href="#projects" class="hover:text-blue-500 transition">Projects</a>
+            <a href="#main" class="hover:text-blue-500 transition">Main</a>
+            <a href="#contact" class="hover:text-blue-500 transition">Contact Information</a>
             <a href="#about" class="hover:text-blue-500 transition">About</a>
+            <a href="#experience" class="hover:text-blue-500 transition">Experience</a>
+            <a href="#projects" class="hover:text-blue-500 transition">Projects</a>
+            <a href="#resume" class="hover:text-blue-500 transition">Resume</a>
         </div>
     </nav>
 
-    <section class="h-[80vh] flex flex-col items-center justify-center text-center hero-gradient">
-        <h1 class="text-6xl font-bold tracking-tighter mb-4" data-aos="fade-up">JUSTIN YOON</h1>
-        <p class="text-zinc-500 tracking-[0.4em] text-sm uppercase" data-aos="fade-up" data-aos-delay="200">Biomedical Engineering | UBC</p>
+    <section id="main" class="h-screen flex flex-col items-center justify-center text-center hero-gradient">
+        <h1 class="text-7xl font-bold tracking-tighter mb-4" data-aos="zoom-out-up">JUSTIN YOON</h1>
+        <p class="text-zinc-500 tracking-[0.5em] text-xs uppercase" data-aos="fade-up" data-aos-delay="300">Biomedical Engineering | UBC</p>
+        <div class="mt-20 animate-bounce text-zinc-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
     </section>
 
-    <section id="projects" class="p-20 grid grid-cols-1 md:grid-cols-2 gap-10">
-        <div class="border border-zinc-800 p-10 rounded-lg" data-aos="fade-right">
-            <h2 class="text-xl font-bold mb-4">Structural Analysis</h2>
-            <p class="text-zinc-400">Calculations for stainless steel frame tension and failure points.</p>
-        </div>
-        <div class="border border-zinc-800 p-10 rounded-lg" data-aos="fade-left">
-            <h2 class="text-xl font-bold mb-4">Bioinformatics</h2>
-            <p class="text-zinc-400">Gene analysis and DNA sequence identification projects.</p>
+    <section id="contact" class="py-32 border-b border-zinc-900">
+        <div class="max-w-4xl mx-auto px-10">
+            <h2 class="text-[10px] uppercase tracking-[0.5em] text-blue-500 mb-12 text-center" data-aos="fade-up">Contact Information</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-sm" data-aos="fade-up" data-aos-delay="200">
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-zinc-600 uppercase text-[9px] tracking-widest mb-1">Email</p>
+                        <p class="text-zinc-300">JungKyuJustinYoon@gmail.com</p>
+                    </div>
+                    <div>
+                        <p class="text-zinc-600 uppercase text-[9px] tracking-widest mb-1">Phone</p>
+                        <p class="text-zinc-300">+1 (778) 881-2431</p>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div>
+                        <p class="text-zinc-600 uppercase text-[9px] tracking-widest mb-1">LinkedIn</p>
+                        <p class="text-zinc-300">linkedin.com/in/justinyoon</p>
+                    </div>
+                    <div>
+                        <p class="text-zinc-600 uppercase text-[9px] tracking-widest mb-1">Location</p>
+                        <p class="text-zinc-300">Vancouver, BC</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
+    <section id="about" class="py-32 border-b border-zinc-900 bg-zinc-950/30">
+        <div class="max-w-5xl mx-auto px-10">
+            
+            <h2 class="text-[10px] uppercase tracking-[0.5em] text-blue-500 mb-16 text-center" data-aos="fade-up">About</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+                
+                <div class="flex justify-center md:justify-end" data-aos="fade-right" data-aos-delay="200">
+                    <img src="headshot.jpg" alt="Justin Yoon Headshot" class="w-48 h-48 md:w-64 md:h-64 object-cover rounded-full border-2 border-zinc-800 grayscale">
+                </div>
+
+                <div class="md:col-span-2 text-center md:text-left space-y-4" data-aos="fade-left" data-aos-delay="400">
+                    <p class="text-zinc-300 leading-relaxed text-sm md:text-base">
+                        I am a fourth-year Biomedical Engineering student at the University of British Columbia with a focus on structural analysis and industrial automation. 
+                    </p>
+                    <p class="text-zinc-300 leading-relaxed text-sm md:text-base">
+                        My work bridges the gap between mechanical rigour and biological application, specifically in prototyping medical devices and analyzing material failure points under dynamic physiological loads.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="experience" class="py-32 px-10 border-b border-zinc-900">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-[10px] uppercase tracking-[0.5em] text-blue-500 mb-16 text-center" data-aos="fade-up">Experience</h2>
+            
+            <div class="space-y-16">
+                <div class="group" data-aos="fade-up">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="text-white text-lg font-bold tracking-tight">Field Service Engineering Co-op</h3>
+                            <p class="text-blue-400 text-xs uppercase tracking-widest mt-1">Kardium</p>
+                        </div>
+                        <span class="text-zinc-600 text-[10px] uppercase tracking-widest mt-2">Jan 2026 — Present</span>
+                    </div>
+                    <p class="text-zinc-400 text-sm leading-relaxed max-w-2xl">
+                        Assisting in the maintenance and deployment of medical systems, focusing on hardware reliability and field-testing protocols.
+                    </p>
+                </div>
+
+                <div class="group" data-aos="fade-up">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="text-white text-lg font-bold tracking-tight">Undergraduate Researcher</h3>
+                            <p class="text-blue-400 text-xs uppercase tracking-widest mt-1">UBC Laboratory</p>
+                        </div>
+                        <span class="text-zinc-600 text-[10px] uppercase tracking-widest mt-2">Sept 2023 — Dec 2023</span>
+                    </div>
+                    <p class="text-zinc-400 text-sm leading-relaxed max-w-2xl">
+                        Conducted gene identification via NCBI BLAST and plasmid design. Analyzed nuclear morphology and F-actin distribution in skin cells using FIJI.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-32 px-10 md:px-20 max-w-7xl mx-auto">
+        <h2 class="text-[10px] uppercase tracking-[0.5em] text-zinc-500 mb-16 text-center" data-aos="fade-up">Project Portfolio</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="project-card relative block overflow-hidden rounded-sm aspect-video bg-zinc-900" data-aos="fade-up">
+                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover grayscale hover:grayscale-0">
+                <div class="project-overlay absolute inset-0 flex flex-col items-center justify-center text-center p-6">
+                    <h3 class="text-2xl font-light tracking-widest uppercase">Structural Steel</h3>
+                    <p class="text-zinc-400 text-[10px] mt-4 uppercase tracking-[0.2em]">View Analysis</p>
+                    <a href="project-1.html" class="absolute inset-0"></a> 
+                </div>
+            </div>
+            <div class="project-card relative block overflow-hidden rounded-sm aspect-video bg-zinc-900" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover grayscale hover:grayscale-0">
+                <div class="project-overlay absolute inset-0 flex flex-col items-center justify-center text-center p-6">
+                    <h3 class="text-2xl font-light tracking-widest uppercase">Bioinformatics</h3>
+                    <p class="text-zinc-400 text-[10px] mt-4 uppercase tracking-[0.2em]">View Project</p>
+                    <a href="project-2.html" class="absolute inset-0"></a>
+                </div>
+            </div>
+            <div class="project-card relative block overflow-hidden rounded-sm aspect-video bg-zinc-900" data-aos="fade-up">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover grayscale hover:grayscale-0">
+                <div class="project-overlay absolute inset-0 flex flex-col items-center justify-center text-center p-6">
+                    <h3 class="text-2xl font-light tracking-widest uppercase">PLC Logic</h3>
+                    <p class="text-zinc-400 text-[10px] mt-4 uppercase tracking-[0.2em]">View Logic</p>
+                    <a href="project-3.html" class="absolute inset-0"></a>
+                </div>
+            </div>
+            <div class="project-card relative block overflow-hidden rounded-sm aspect-video bg-zinc-900" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1532187878418-329e4b21efbb?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover grayscale hover:grayscale-0">
+                <div class="project-overlay absolute inset-0 flex flex-col items-center justify-center text-center p-6">
+                    <h3 class="text-2xl font-light tracking-widest uppercase">Wet Lab</h3>
+                    <p class="text-zinc-400 text-[10px] mt-4 uppercase tracking-[0.2em]">View Experiment</p>
+                    <a href="project-4.html" class="absolute inset-0"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume" class="py-32 px-10 bg-zinc-950 border-t border-zinc-900">
+        <h2 class="text-[10px] uppercase tracking-[0.5em] text-zinc-500 mb-12 text-center" data-aos="fade-up">Resume</h2>
+        <div class="resume-container" data-aos="fade-up">
+            <iframe src="resume.pdf#toolbar=0" class="resume-iframe"></iframe>
+            <a href="resume.pdf" download="Justin_Yoon_Resume.pdf" class="resume-download-overlay">
+                <div class="bg-white text-black px-8 py-3 tracking-[0.3em] uppercase text-[10px] font-bold hover:bg-blue-500 hover:text-white transition">
+                    Download PDF
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <footer class="py-20 text-center border-t border-zinc-900">
+        <p class="text-[10px] text-zinc-600 tracking-[0.5em] uppercase">© 2026 Justin Yoon</p>
+    </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init();</script>
+    <script>
+        AOS.init({ duration: 1000, offset: 100 });
+    </script>
 </body>
 </html>

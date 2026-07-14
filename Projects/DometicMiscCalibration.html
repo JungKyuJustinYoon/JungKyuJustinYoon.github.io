@@ -38,24 +38,28 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
             <div class="md:col-span-2 space-y-8 text-zinc-300 leading-relaxed" data-aos="fade-right">
                 <h2 class="text-white text-xl font-bold">Overview</h2>
-                <p>Describe the problem you were solving here. Focus on the engineering challenges, such as material constraints, beam deflection analysis, or specific load requirements.</p>
+                <p>One of the actuator assembly stations relied on manually entered shaft and housing diameter values to calibrate its inspection sensors. As the pneumatic clamping mechanism wore over time, sensor readings would gradually drift, requiring frequent manual recalibration and increasing the risk of incorrect part identification.
+
+To eliminate this process, I developed an automated calibration routine within the PLC that allows the machine to calibrate itself using known reference parts. The program measures the shaft and housing diameters, calculates acceptable measurement ranges based on quality tolerances, and automatically updates the calibration values used during production. It also determines which of the four actuator variants is being assembled, ensuring the correct components are used throughout the assembly process and preventing parts from being mixed between product lines.
+
+In addition to developing the calibration logic, I created the operator interface and documented the complete calibration procedure, making the system easy for production staff to run without engineering support. The result was a more reliable inspection process that reduced manual setup, compensated for mechanical wear, and improved overall production consistency.</p>
                 
                 <h2 class="text-white text-xl font-bold">Key Deliverables</h2>
                 <ul class="list-disc list-inside space-y-2 text-zinc-400">
-                    <li>3D CAD Modeling (SolidWorks)</li>
-                    <li>FEA Analysis of failure points</li>
-                    <li>Technical documentation for manufacturing</li>
+                    <li>Programmed logic to compensate for sensor drift caused by fixture wear.</li>
+                    <li>Implemented automatic actuator variant identification using measured dimensions.</li>
+                    <li>Designed HMI screens and operator-guided calibration procedures.</li>
                 </ul>
             </div>
 
             <div class="space-y-8" data-aos="fade-left">
                 <div>
                     <h3 class="text-zinc-600 uppercase text-[9px] tracking-widest mb-2">Role</h3>
-                    <p class="text-sm">Lead Structural Analyst</p>
+                    <p class="text-sm">Automation Engineer</p>
                 </div>
                 <div>
                     <h3 class="text-zinc-600 uppercase text-[9px] tracking-widest mb-2">Tools</h3>
-                    <p class="text-sm">SolidWorks, MATLAB, ANSYS</p>
+                    <p class="text-sm">Siemens Tiaportal</p>
                 </div>
             </div>
         </div>

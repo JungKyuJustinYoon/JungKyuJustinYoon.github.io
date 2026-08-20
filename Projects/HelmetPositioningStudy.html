@@ -38,13 +38,20 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
             <div class="md:col-span-2 space-y-8 text-zinc-300 leading-relaxed" data-aos="fade-right">
                 <h2 class="text-white text-xl font-bold">Overview</h2>
-                <p>Describe the problem you were solving here. Focus on the engineering challenges, such as material constraints, beam deflection analysis, or specific load requirements.</p>
+                <p>Investigated the effect of motorcycle helmet positioning on head kinematics and impact loading using a Hybrid III 50th-percentile male ATD instrumented with nine accelerometers. Six controlled drop tests were performed across proper-fit, lateral-offset, upward-offset, and downward-offset configurations. The helmeted ATD was released from a 27-inch drop height onto a fixed impact anvil, with accelerometer data sampled at 10 kHz and synchronized video used for independent kinematic analysis.
+Developed MATLAB-based data-processing workflows to convert raw acceleration data from g to m/s² and apply a zero-phase, 4th-order Butterworth low-pass filter with a 50 Hz cutoff. Sensor channels were grouped by anatomical location, and peak translational acceleration was calculated from the COG, anterior, lateral, and superior accelerometers. Rotational acceleration was estimated from differential acceleration between spatially separated sensors using their known distances from the ATD center of gravity.
+
+Calculated resultant linear and rotational acceleration vectors and projected rotational acceleration onto the principal axis of rotation. Force transmission was determined from the resultant COG acceleration using an 80 kg ATD mass. Across the six trials, peak resultant linear acceleration ranged from 10.57–22.46 m/s², peak rotational acceleration from 44.12–74.97 rad/s², and calculated peak force transmission from 845–1,797 N.
+
+Additionally developed a MATLAB computer-vision workflow for video-based impact analysis. The script used HSV colour segmentation to identify a calibration marker, established a pixel-to-metre conversion, tracked a helmet marker using normalized cross-correlation, and numerically differentiated the resulting position data to obtain velocity and acceleration. Savitzky-Golay and median filtering were applied to reduce noise before calculating force, impact duration, and peak displacement.</p>
                 
                 <h2 class="text-white text-xl font-bold">Key Deliverables</h2>
                 <ul class="list-disc list-inside space-y-2 text-zinc-400">
-                    <li>3D CAD Modeling (SolidWorks)</li>
-                    <li>FEA Analysis of failure points</li>
-                    <li>Technical documentation for manufacturing</li>
+                    <li>9-channel accelerometer data acquisition and processing at 10 kHz</li>
+                    <li>4th-order, 50 Hz zero-phase Butterworth filtering of impact acceleration signals</li>
+                    <li>MATLAB calculation of resultant linear acceleration, rotational acceleration, principal rotation axis, and force transmission</li>
+                    <li>Computer-vision pipeline for marker tracking, spatial calibration, displacement, velocity, and acceleration extraction</li>
+                    <li>Experimental comparison of helmet fit and offset conditions using quantitative impact kinematics</li>
                 </ul>
             </div>
 
